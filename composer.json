@@ -1,0 +1,12 @@
+{
+    "name": "dominicgisler/gislercms-editor",
+    "description": "editor package for gislercms",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dominic Gisler",
+            "email": "domgisler@gmail.com"
+        }
+    ],
+    "require": {}
+}
