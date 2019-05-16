@@ -1,12 +1,20 @@
 <?php
 
-// session fix START
-$cwd = getcwd();
-chdir(__DIR__ . '/../../../../');
-require 'vendor/autoload.php';
-\GislerCMS\Helper\SessionHelper::getContainer();
-chdir($cwd);
-// session fix END
+// session fix and authentication START
+require __DIR__ . '/../../../../vendor/autoload.php';
+
+$cont = \GislerCMS\Helper\SessionHelper::getContainer();
+if ($cont->offsetExists('user')) {
+    /** @var User $user */
+    $user = $cont->offsetGet('user');
+    $dbUser = User::getByUsername($user->getUsername());
+
+    if (!$user->isEqual($dbUser)) {
+        header("HTTP/1.1 401 Unauthorized");
+        exit;
+    }
+}
+// session fix and authentication END
 
 $version = "9.14.0";
 if (session_id() == '') {
