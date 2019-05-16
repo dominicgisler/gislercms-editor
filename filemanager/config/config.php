@@ -1,4 +1,13 @@
 <?php
+
+// session fix START
+$cwd = getcwd();
+chdir(__DIR__ . '/../../../../');
+require 'vendor/autoload.php';
+\GislerCMS\Helper\SessionHelper::getContainer();
+chdir($cwd);
+// session fix END
+
 $version = "9.14.0";
 if (session_id() == '') {
     session_start();
