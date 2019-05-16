@@ -4,21 +4,7 @@
 require __DIR__ . '/../../../../vendor/autoload.php';
 
 $cont = \GislerCMS\Helper\SessionHelper::getContainer();
-$auth = false;
-if ($cont->offsetExists('user')) {
-    try {
-        /** @var User $user */
-        $user = $cont->offsetGet('user');
-        $dbUser = User::getByUsername($user->getUsername());
-
-        if ($user->isEqual($dbUser)) {
-            $auth = true;
-        }
-    } catch (\Exception $e) {
-        $auth = false;
-    }
-}
-if (!$auth) {
+if (!$cont->offsetExists('user')) {
     header("HTTP/1.1 401 Unauthorized");
     exit;
 }
