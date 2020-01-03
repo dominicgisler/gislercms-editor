@@ -524,12 +524,12 @@ $config = array(
     // path_from_filemanager/test/test1/
     // PS if there isn't write permission in your destination folder you must set it
     //
-    'fixed_image_creation'                    => false, //activate or not the creation of one or more image resized with fixed path from filemanager folder
-    'fixed_path_from_filemanager'             => array( '../test/', '../test1/' ), //fixed path of the image folder from the current position on upload folder
-    'fixed_image_creation_name_to_prepend'    => array( '', 'test_' ), //name to prepend on filename
-    'fixed_image_creation_to_append'          => array( '_test', '' ), //name to appendon filename
-    'fixed_image_creation_width'              => array( 300, 400 ), //width of image
-    'fixed_image_creation_height'             => array( 200, 300 ), //height of image
+    'fixed_image_creation'                    => true, //activate or not the creation of one or more image resized with fixed path from filemanager folder
+    'fixed_path_from_filemanager'             => array( '../../thumb/' ), //fixed path of the image folder from the current position on upload folder
+    'fixed_image_creation_name_to_prepend'    => array( '' ), //name to prepend on filename
+    'fixed_image_creation_to_append'          => array( '' ), //name to appendon filename
+    'fixed_image_creation_width'              => array( 300 ), //width of image
+    'fixed_image_creation_height'             => array( 200 ), //height of image
     /*
     #             $option:     0 / exact = defined size;
     #                          1 / portrait = keep aspect set height;
